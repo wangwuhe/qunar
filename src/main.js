@@ -7,12 +7,17 @@ import router from './router'
 Vue.config.productionTip = false
 
 //css
-import './assets/css/reset.css'
-import './assets/css/iconfont.css'
+import 'css/reset.css'
+import 'css/iconfont.css'
 
 //js
 import FastClick from 'fastclick'
 FastClick.attach(document.body);
+
+//Swiper组件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({

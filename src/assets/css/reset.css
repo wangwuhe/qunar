@@ -51,9 +51,21 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-html{
-	font-size: 50px;
-}
 a{
 	text-decoration: none;
+}
+.border-top::before{
+	content: " ";
+	position: absolute;
+	width: 100%;
+	height: 0.278vw;
+	border-top: 0.278vw solid #e0e0e0;
+}
+.border-right::before{
+	content: " ";
+	position: absolute;
+	width: 0.278vw;
+	height: 100%;
+	border-right: 0.278vw solid #e0e0e0;
+	left: 50%;
 }
