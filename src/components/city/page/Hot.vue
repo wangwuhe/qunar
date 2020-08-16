@@ -17,9 +17,9 @@ export default {
 
 <style scoped>
 .hot-title{
-    font-size: 13px;
+    font-size: 12px;
     color: #212121;
-    padding: 15px;
+    padding: 10px 15px;
 }
 .hot-list{
     position: relative;
