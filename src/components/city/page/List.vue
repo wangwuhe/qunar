@@ -16,44 +16,47 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-
-@import '~css/common.styl'
+@import '~css/common.styl';
 
 .list-title {
   font-size: 12px;
   color: #212121;
   padding: 10px 15px;
 }
-.list-msg{
-	position: relative;
-	background: #fff;
-	overflow: hidden;
+
+.list-msg {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
 }
-.list-msg:before{
-	content: " ";
-	position: absolute;
-	left:25%;
-	width:25%;
-	height: 100%;
-	border-left:1px solid #ddd;
-	border-right:1px solid #ddd;
+
+.list-msg:before {
+  content: ' ';
+  position: absolute;
+  left: 25%;
+  width: 25%;
+  height: 100%;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
-.list-msg:after{
-	content: " ";
-	position: absolute;
-	left:75%;
-	width:0%;
-	height: 100%;
-	border-left:1px solid #ddd;
+
+.list-msg:after {
+  content: ' ';
+  position: absolute;
+  left: 75%;
+  width: 0%;
+  height: 100%;
+  border-left: 1px solid #ddd;
 }
-.list-item{
-	position:relative;
-	width:25%;
-	font-size:15px;
-	text-align: center;
-	line-height: 45px;
-	float:left;
-	border-bottom:1px solid #ddd;
-	textOverflow();
+
+.list-item {
+  position: relative;
+  width: 25%;
+  font-size: 15px;
+  text-align: center;
+  line-height: 45px;
+  float: left;
+  border-bottom: 1px solid #ddd;
+  textOverflow();
 }
 </style>
