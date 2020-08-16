@@ -69,3 +69,12 @@ a{
 	border-right: 0.278vw solid #e0e0e0;
 	left: 50%;
 }
+.border-bottom::before{
+	content: " ";
+	position: absolute;
+	height: 0.278vw;
+	width: 100%;
+	border-bottom: 0.278vw solid #e0e0e0;
+	left: 0;
+	bottom: 0;
+}

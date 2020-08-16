@@ -11,23 +11,9 @@
 
 <script type="text/javascript">
 export default {
-  name: 'carrousel',
+  props:['swiperList'],
     data() {
       return {
-        swiperList:[
-          {
-            "id":"01",
-            "imgUrl":"../../../../static/mock/img/swiper1.jpg"
-          },
-          {
-            "id":"02",
-            "imgUrl":"../../../../static/mock/img/swiper2.jpg"
-          },
-          {
-            "id":"03",
-            "imgUrl":"../../../../static/mock/img/swiper3.jpg"
-          }
-        ],
         swiperOption: {
           pagination:{
             el:'.swiper-pagination',
