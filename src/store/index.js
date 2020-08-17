@@ -4,11 +4,12 @@ import Vuex from 'vuex';
 Vue.use(Vuex)
 
 const state={
-    city:"上海"
+    city:localStorage.city||'北京'
 }
 const mutations={
     changeCity(state,name){
         state.city=name;
+        localStorage.city=name;
     }
 }
 
