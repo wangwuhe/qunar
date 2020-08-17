@@ -26,7 +26,7 @@ export default {
   mounted() {
     let That=this;
     window.addEventListener('scroll',function(){
-      let top=this.document.documentElement.scrollTop;
+      let top=document.body.scrollTop || document.documentElement.scrollTop || window.pageXOffset;
       if(top>45){
         let opacity=top/190;
         opacity=opacity>1?1:opacity;

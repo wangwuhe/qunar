@@ -37,15 +37,12 @@ export default {
       scroll:''
     }
   },
-  mounted() {
-    let container=this.$refs['container']
-    if(!container){
-      return ;
-    }
-    this.scroll = new BScroll(container,{
-      mouseWheel: true,//开启鼠标滚轮
+created() {
+    this.$nextTick(() => {
+        // 执行滚动方法
+        this.initScroll();
     })
-  },
+},
   methods: {
     changeSort(key){
       this.scroll.scrollToElement(this.$refs[key][0])
@@ -54,7 +51,14 @@ export default {
       this.changeCity(name)
       this.$router.push('/')
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(['changeCity']),
+    initScroll() {
+      let container=this.$refs['container'];
+      this.scroll = new BScroll(container,{
+        mouseWheel: true,//开启鼠标滚轮
+        click: true
+      })
+    }
   },
 };
 </script>
