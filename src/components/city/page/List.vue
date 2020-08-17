@@ -1,10 +1,10 @@
 <template>
 <div ref="container" class="container">
-  <div>
+  <div class="content">
     <div class="hot">
       <div class="hot-title">热门城市</div>
       <ul class="hot-list">
-        <li class="hot-item" v-for="item in hotCities" :key="item.id">{{item.name}}</li>
+        <li class="hot-item" @click="changeCityName(item.name)" v-for="item in hotCities" :key="item.id">{{item.name}}</li>
       </ul>
     </div>
 
@@ -19,7 +19,7 @@
       <div v-for="(val,key) in cities" :key="key" :ref="key">
         <div class="list-title">{{key}}</div>
         <ul class="list-msg">
-          <li class="list-item" v-for="item in val" :key="item.id">{{item.name}}</li>
+          <li class="list-item" @click="changeCityName(item.name)" v-for="item in val" :key="item.id">{{item.name}}</li>
         </ul>
       </div>
     </div>
@@ -29,6 +29,7 @@
 
 <script>
 import BScroll from 'better-scroll';
+import {mapMutations} from 'vuex';
 export default {
   props: ["cities","hotCities"],
   data() {
@@ -38,12 +39,22 @@ export default {
   },
   mounted() {
     let container=this.$refs['container']
-    this.scroll = new BScroll(container)
+    if(!container){
+      return ;
+    }
+    this.scroll = new BScroll(container,{
+      mouseWheel: true,//开启鼠标滚轮
+    })
   },
   methods: {
     changeSort(key){
       this.scroll.scrollToElement(this.$refs[key][0])
-    }
+    },
+    changeCityName(name){
+      this.changeCity(name)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
 };
 </script>
@@ -60,7 +71,6 @@ export default {
   top: 12.222vw;
   background: #f5f5f5;
 }
-
 .hot-title {
   font-size: 3.333vw;
   color: #212121;
@@ -82,6 +92,7 @@ export default {
   border-right: 0.278vw solid #ddd;
 }
 .hot-item {
+  position: relative;
   color: #212121;
   width: 33.33%;
   text-align: center;
