@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     changeSort(key){
-      console.log(this.$refs[key][0])
+      this.scroll.scrollToElement(this.$refs[key][0])
     }
   },
 };
