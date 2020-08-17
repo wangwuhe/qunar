@@ -39,25 +39,38 @@ export default {
       iconsList: [],
       likeList: [],
       vacationList: [],
+      changeCity:''
     };
   },
   computed:{
     ...mapState(['city'])
   },
-  mounted() {
-    this.$http.get("/api/dataHome.json").then((res) => {
-      const data = res.data.data;
-      data.forEach((item,index)=>{
-        if(item.city==this.city){
-          this.hotList = item.hotList;
-          this.iconsList = item.iconsList;
-          this.likeList = item.likeList;
-          this.swiperList = item.swiperList;
-          this.vacationList = item.vacationList;
-        }
-      })
-    });
+  methods: {
+    getHttp(){
+      this.$http.get("/api/dataHome.json").then((res) => {
+        const data = res.data.data;
+        data.forEach((item,index)=>{
+          if(item.city==this.city){
+            this.hotList = item.hotList;
+            this.iconsList = item.iconsList;
+            this.likeList = item.likeList;
+            this.swiperList = item.swiperList;
+            this.vacationList = item.vacationList;
+          }
+        })
+      });
+    }
   },
+  mounted(){
+		this.changeCity=this.city
+		this.getHttp()
+	},
+  activated(){
+    if(this.city!=this.changeCity){
+      this.getHttp();
+			this.changeCity=this.city;
+		}
+  }
 };
 </script>
 
