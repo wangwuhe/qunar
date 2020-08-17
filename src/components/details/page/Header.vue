@@ -2,11 +2,11 @@
   <div class="header">
       <div v-show="showHeader" class="header-return">
         <span class="border-return"></span>
-        <span class="iconfont return">&#xe624;</span>
+        <span class="iconfont return" @click="toHome">&#xe624;</span>
       </div>
       <div v-show="!showHeader" class="header-top" :style="styleOpacity">
         <div class="header-left">
-          <span class="iconfont">&#xe624;</span>
+          <span class="iconfont" @click="toHome">&#xe624;</span>
         </div>
         北京国际鲜花港
       </div>
@@ -36,6 +36,11 @@ export default {
         That.showHeader=true;
       }
     })
+  },
+  methods: {
+    toHome(){
+      this.$router.push('/')
+    }
   },
 }
 </script>
